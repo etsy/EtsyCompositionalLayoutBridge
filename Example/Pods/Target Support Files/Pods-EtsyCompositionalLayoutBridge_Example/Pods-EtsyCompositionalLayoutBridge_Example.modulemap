@@ -1,0 +1,6 @@
+framework module Pods_EtsyCompositionalLayoutBridge_Example {
+  umbrella header "Pods-EtsyCompositionalLayoutBridge_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

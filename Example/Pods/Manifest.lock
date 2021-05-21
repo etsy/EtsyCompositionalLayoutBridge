@@ -1,0 +1,16 @@
+PODS:
+  - EtsyCompositionalLayoutBridge (0.1.0)
+
+DEPENDENCIES:
+  - EtsyCompositionalLayoutBridge (from `../`)
+
+EXTERNAL SOURCES:
+  EtsyCompositionalLayoutBridge:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  EtsyCompositionalLayoutBridge: bf9ab59278eb5cd6a2645909c25deab50a7aeb23
+
+PODFILE CHECKSUM: 9310c947e277d0122ea6537fdd6626a0995c7bb9
+
+COCOAPODS: 1.10.1
