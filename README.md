@@ -45,7 +45,24 @@ If you use Carthage to build your dependencies, make sure you have added `EtsyCo
 1. Create an `EtsyCompositionalLayoutBridge` instance using the initializer 
     `EtsyCompositionalLayoutBridge(collectionView:flowLayout:delegate:dataSource:flowLayoutDelegate:)`.
 
+    ```swift
+    let bridge = EtsyCompositionalLayoutBridge(collectionView: collectionView, flowLayout: flowLayout, delegate: self, dataSource: self, flowLayoutDelegate: nil)
+
+    ```
+
 2. Implement the `EtsyCompositionalLayoutBridgeDelegate` protocol on `delegate` passed into the initializer above.
+
+    ```swift
+    extension ViewController: EtsyCompositionalLayoutBridgeDelegate { 
+        func compositionalLayoutBridge(_ bridge: EtsyCompositionalLayoutBridge, shouldUseFlowLayoutFor section: Int) -> Bool {
+            ...
+        }
+
+        func compositionalLayoutBridge(_ bridge: EtsyCompositionalLayoutBridge, layoutSectionFor section: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
+            ...
+        }
+    }
+    ```
     
     * The `EtsyCompositionalLayoutBridgeDelegate.compositionalLayoutBridge(_:shouldUseFlowLayoutFor:)`
     delegate method allows you to return a `Bool` that determines whether or not the bridge will use `UICollectionViewFlowLayout`  behavior for a specific section of the collection view.
@@ -54,6 +71,10 @@ If you use Carthage to build your dependencies, make sure you have added `EtsyCo
     delegate method allows you to provide an `NSCollectionLayoutSection` for sections in the collection view you returned `false` for in the `compositionalLayoutBridge(_:shouldUseFlowLayoutFor:)` delegate method.
     
 3. Set  `collectionView.collectionViewLayout` to `.layout()` on the `EtsyCompositionalLayoutBridge` instance you created in step 1.
+
+    ```swift
+    collectionView.collectionViewLayout = bridge.layout() 
+    ```
 
 
 ### Example
